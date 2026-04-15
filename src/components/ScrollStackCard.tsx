@@ -5,7 +5,6 @@ import { ReactNode } from "react";
 interface ScrollStackCardProps {
   children: ReactNode;
   index: number;
-  total: number;
 }
 
 const ScrollStackCard = ({ children, index, total }: ScrollStackCardProps) => {

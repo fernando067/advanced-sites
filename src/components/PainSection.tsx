@@ -1,6 +1,6 @@
 import AnimatedSection from "./AnimatedSection";
 import ScrollStackCard from "./ScrollStackCard";
-import { TrendingDown, Snail, Wrench, Smartphone, DollarSign, HeadsetOff } from "lucide-react";
+import { TrendingDown, Snail, Wrench, Smartphone, DollarSign, HeadphoneOff } from "lucide-react";
 import { ReactNode } from "react";
 
 const pains: { icon: ReactNode; title: string; desc: string }[] = [
@@ -9,7 +9,7 @@ const pains: { icon: ReactNode; title: string; desc: string }[] = [
   { icon: <Wrench className="h-7 w-7" />, title: "Manutenção constante", desc: "Vive com bugs e problemas que nunca são resolvidos." },
   { icon: <Smartphone className="h-7 w-7" />, title: "Não funciona no mobile", desc: "Mais de 80% dos acessos são mobile e seu site não está pronto." },
   { icon: <DollarSign className="h-7 w-7" />, title: "Investimento sem resultado", desc: "Já contratou freelancers e agências sem resultados concretos." },
-  { icon: <HeadsetOff className="h-7 w-7" />, title: "Zero suporte estratégico", desc: "Não tem ninguém para orientar o que funciona de verdade." },
+  { icon: <HeadphoneOff className="h-7 w-7" />, title: "Zero suporte estratégico", desc: "Não tem ninguém para orientar o que funciona de verdade." },
 ];
 
 const PainSection = () => (
