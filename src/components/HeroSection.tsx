@@ -1,11 +1,7 @@
 import { motion } from "framer-motion";
 import { lazy, Suspense, useState, useEffect } from "react";
-import heroMockup from "@/assets/hero-mockup.png";
 
 const FuturisticCanvas = lazy(() => import("@/components/ui/hero-futuristic"));
-const HeroFuturisticOverlayLazy = lazy(() =>
-  import("@/components/ui/hero-futuristic").then((m) => ({ default: m.HeroFuturisticOverlay }))
-);
 
 const HeroSection = () => {
   const [webglSupported, setWebglSupported] = useState(false);
@@ -21,24 +17,8 @@ const HeroSection = () => {
   }, []);
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background */}
-      <div className="absolute inset-0" style={{ background: "var(--gradient-hero)" }} />
-
-      {webglSupported ? (
-        <div className="absolute inset-0">
-          <Suspense fallback={null}>
-            <FuturisticCanvas />
-          </Suspense>
-        </div>
-      ) : (
-        <>
-          <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] rounded-full bg-primary/5 blur-[120px] animate-pulse-glow" />
-          <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] rounded-full bg-accent/5 blur-[100px] animate-pulse-glow" />
-        </>
-      )}
-
-      {/* Content overlay */}
+    <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden">
+      {/* Content */}
       <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -69,6 +49,22 @@ const HeroSection = () => {
           </div>
         </motion.div>
       </div>
+
+      {/* 3D animation below CTA */}
+      {webglSupported && (
+        <motion.div
+          className="relative z-10 w-full max-w-2xl mx-auto mt-12 px-6"
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
+        >
+          <div className="w-full aspect-[16/9] rounded-2xl overflow-hidden border border-border/30">
+            <Suspense fallback={null}>
+              <FuturisticCanvas />
+            </Suspense>
+          </div>
+        </motion.div>
+      )}
     </section>
   );
 };
