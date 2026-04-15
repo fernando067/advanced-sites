@@ -25,7 +25,7 @@ const PainSection = () => (
 
       <div className="space-y-6">
         {pains.map((p, i) => (
-          <ScrollStackCard key={i} index={i} total={pains.length}>
+          <ScrollStackCard key={i} index={i}>
             <div className="rounded-2xl border border-border/60 bg-card/80 backdrop-blur-xl p-6 shadow-[var(--shadow-card)] transition-shadow hover:shadow-[var(--shadow-elevated)]">
               <div className="flex items-start gap-5">
                 <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary">

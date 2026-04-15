@@ -7,7 +7,7 @@ interface ScrollStackCardProps {
   index: number;
 }
 
-const ScrollStackCard = ({ children, index, total }: ScrollStackCardProps) => {
+const ScrollStackCard = ({ children, index }: ScrollStackCardProps) => {
   const ref = useRef<HTMLDivElement>(null);
 
   const { scrollYProgress } = useScroll({
