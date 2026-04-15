@@ -1,24 +1,8 @@
 import { motion } from "framer-motion";
-import { lazy, Suspense, useState, useEffect } from "react";
-
-const FuturisticCanvas = lazy(() => import("@/components/ui/hero-futuristic"));
 
 const HeroSection = () => {
-  const [webglSupported, setWebglSupported] = useState(false);
-
-  useEffect(() => {
-    try {
-      const canvas = document.createElement("canvas");
-      const gl = canvas.getContext("webgl2") || canvas.getContext("webgl");
-      setWebglSupported(!!gl);
-    } catch {
-      setWebglSupported(false);
-    }
-  }, []);
-
   return (
     <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden">
-      {/* Content */}
       <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -49,22 +33,6 @@ const HeroSection = () => {
           </div>
         </motion.div>
       </div>
-
-      {/* 3D animation below CTA */}
-      {webglSupported && (
-        <motion.div
-          className="relative z-10 w-full max-w-2xl mx-auto mt-12 px-6"
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
-        >
-          <div className="w-full aspect-[16/9] rounded-2xl overflow-hidden border border-border/30">
-            <Suspense fallback={null}>
-              <FuturisticCanvas />
-            </Suspense>
-          </div>
-        </motion.div>
-      )}
     </section>
   );
 };
