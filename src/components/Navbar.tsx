@@ -1,0 +1,33 @@
+import { useState, useEffect } from "react";
+import { motion } from "framer-motion";
+import logo from "@/assets/logo.png";
+
+const Navbar = () => {
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handler = () => setScrolled(window.scrollY > 20);
+    window.addEventListener("scroll", handler);
+    return () => window.removeEventListener("scroll", handler);
+  }, []);
+
+  return (
+    <motion.nav
+      initial={{ y: -20, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.6 }}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        scrolled ? "glass-strong py-3" : "py-5"
+      }`}
+    >
+      <div className="container-narrow flex items-center justify-between px-4">
+        <img src={logo} alt="Advanced MKT" className="h-8 md:h-10" />
+        <a href="#cta-final" className="btn-cta text-sm md:text-base">
+          Agendar Reunião
+        </a>
+      </div>
+    </motion.nav>
+  );
+};
+
+export default Navbar;
