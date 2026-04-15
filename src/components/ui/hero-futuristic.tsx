@@ -89,7 +89,7 @@ const Scene = () => {
   );
 
   const [w, h] = useAspect(WIDTH, HEIGHT);
-  const scaleFactor = 0.4;
+  const scaleFactor = 0.65;
 
   useFrame(({ clock, pointer }) => {
     uniforms.uProgress.value = Math.sin(clock.getElapsedTime() * 0.5) * 0.5 + 0.5;
