@@ -273,10 +273,13 @@ export default function AnimatedGradient({
       u_swirlIterations: gl.getUniformLocation(program, "u_swirlIterations"),
     };
 
+    // Use reduced pixel ratio for performance (max 1.0)
+    const maxPixelRatio = 1.0;
+
     const resize = () => {
       const width = container.clientWidth;
       const height = container.clientHeight;
-      const pixelRatio = window.devicePixelRatio || 1;
+      const pixelRatio = Math.min(window.devicePixelRatio || 1, maxPixelRatio);
       canvas.width = width * pixelRatio;
       canvas.height = height * pixelRatio;
       canvas.style.width = `${width}px`;
@@ -290,13 +293,29 @@ export default function AnimatedGradient({
 
     startTimeRef.current = performance.now();
 
+    // Throttle to ~30fps for performance
+    let lastFrameTime = 0;
+    const frameBudget = 1000 / 30;
+    let isVisible = true;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => { isVisible = entry.isIntersecting; },
+      { threshold: 0 }
+    );
+    observer.observe(container);
+
     const animate = (time: number) => {
+      frameIdRef.current = requestAnimationFrame(animate);
+      if (!isVisible) return;
+      if (time - lastFrameTime < frameBudget) return;
+      lastFrameTime = time;
+
       const elapsed = (time - startTimeRef.current) / 1000;
       const speed = (params.speed / 100) * 5;
 
       gl.uniform1f(uniforms.u_time, elapsed * speed + params.offset * 0.01);
       gl.uniform2f(uniforms.u_resolution, canvas.width, canvas.height);
-      gl.uniform1f(uniforms.u_pixelRatio, window.devicePixelRatio || 1);
+      gl.uniform1f(uniforms.u_pixelRatio, Math.min(window.devicePixelRatio || 1, maxPixelRatio));
       gl.uniform1f(uniforms.u_scale, params.scale);
       gl.uniform1f(uniforms.u_rotation, (params.rotation * Math.PI) / 180);
 
@@ -319,7 +338,6 @@ export default function AnimatedGradient({
       );
 
       gl.drawArrays(gl.TRIANGLES, 0, 6);
-      frameIdRef.current = requestAnimationFrame(animate);
     };
 
     frameIdRef.current = requestAnimationFrame(animate);
@@ -328,6 +346,7 @@ export default function AnimatedGradient({
       if (frameIdRef.current !== undefined) {
         cancelAnimationFrame(frameIdRef.current);
       }
+      observer.disconnect();
       resizeObserver.disconnect();
       gl.deleteProgram(program);
       gl.deleteShader(vertexShader);
