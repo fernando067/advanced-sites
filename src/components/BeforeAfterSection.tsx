@@ -37,8 +37,8 @@ const BeforeAfterSection = () => (
             <ul className="space-y-4">
               {[
                 "Design premium que gera confiança",
-                "Conversão acima de 5%",
-                "Carregamento em menos de 2 segundos",
+                "Estratégia focada em resultados reais",
+                "Performance otimizada para o usuário",
                 "Funil de vendas otimizado",
                 "Checkout fluido e sem fricção",
               ].map((item, i) => (
