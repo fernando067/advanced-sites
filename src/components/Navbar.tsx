@@ -22,7 +22,7 @@ const Navbar = () => {
       }`}
     >
       <div className="container-narrow flex items-center justify-between px-4">
-        <img src={logo} alt="Advanced MKT" className="h-7 md:h-9" />
+        <img src={logo} alt="Advanced MKT" className="h-7 md:h-9" width={240} height={49} loading="eager" />
         <a
           href="#cta-final"
           className="inline-flex items-center gap-1.5 rounded-full bg-primary/90 px-4 py-2 text-xs font-semibold text-primary-foreground backdrop-blur-sm transition-all hover:bg-primary hover:gap-2.5 hover:shadow-[var(--shadow-glow)]"
