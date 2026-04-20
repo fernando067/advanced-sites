@@ -24,17 +24,17 @@ const FaqSection = () => (
       </AnimatedSection>
 
       <AnimatedSection>
-        <Accordion type="single" collapsible className="space-y-3">
+        <Accordion type="single" collapsible className="space-y-2">
           {faqs.map((f, i) => (
             <AccordionItem
               key={i}
               value={`faq-${i}`}
               className="card-glass border-border/50 overflow-hidden"
             >
-              <AccordionTrigger className="px-6 py-4 text-left font-heading font-semibold text-foreground hover:no-underline hover:text-primary transition-colors">
+              <AccordionTrigger className="px-4 py-3 text-left text-sm font-heading font-semibold text-foreground hover:no-underline hover:text-primary transition-colors sm:text-base">
                 {f.q}
               </AccordionTrigger>
-              <AccordionContent className="px-6 pb-4 text-muted-foreground leading-relaxed">
+              <AccordionContent className="px-4 pb-3 text-sm text-muted-foreground leading-relaxed">
                 {f.a}
               </AccordionContent>
             </AccordionItem>
