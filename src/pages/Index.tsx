@@ -1,4 +1,3 @@
-import { lazy, Suspense } from "react";
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import PainSection from "@/components/PainSection";
@@ -13,8 +12,7 @@ import ProcessSection from "@/components/ProcessSection";
 import FaqSection from "@/components/FaqSection";
 import CtaFinalSection from "@/components/CtaFinalSection";
 import Footer from "@/components/Footer";
-
-const AnimatedGradient = lazy(() => import("@/components/ui/animated-gradient"));
+import bgGradient from "@/assets/bg-gradient.webp";
 
 const Index = () => (
   <div className="relative min-h-screen text-foreground">
