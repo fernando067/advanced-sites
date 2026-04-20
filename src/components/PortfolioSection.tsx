@@ -102,9 +102,9 @@ const ProjectCard = ({ project }: { project: PortfolioProject }) => (
     whileInView={{ opacity: 1, y: 0 }}
     viewport={{ once: true, margin: "-50px" }}
     transition={{ duration: 0.5 }}
-    className="card-glass overflow-hidden p-6 md:p-8"
+    className="card-glass overflow-hidden p-4 sm:p-6 md:p-8"
   >
-    <div className="mb-6 flex flex-wrap items-start justify-between gap-3">
+    <div className="mb-5 flex flex-wrap items-start justify-between gap-3 sm:mb-6">
       <div>
         <span className="mb-2 inline-block rounded-full border border-primary/30 bg-primary/10 px-3 py-1 text-xs font-medium text-primary">
           {project.tag}
@@ -124,18 +124,18 @@ const ProjectCard = ({ project }: { project: PortfolioProject }) => (
       )}
     </div>
 
-    <div className="grid grid-cols-1 items-end gap-6 md:grid-cols-[1fr_auto]">
+    <div className="grid grid-cols-[1fr_auto] items-end gap-4 sm:gap-6 md:grid-cols-[1fr_auto]">
       {/* Desktop mockup */}
-      <div>
-        <span className="mb-2 block text-xs uppercase tracking-wider text-muted-foreground">Desktop</span>
+      <div className="min-w-0">
+        <span className="mb-2 block text-[10px] uppercase tracking-wider text-muted-foreground sm:text-xs">Desktop</span>
         <div className="overflow-hidden rounded-lg border border-border bg-secondary shadow-[var(--shadow-card)]">
-          <div className="flex items-center gap-3 border-b border-border bg-muted/30 px-3 py-2">
-            <div className="flex gap-1.5">
-              <span className="h-2.5 w-2.5 rounded-full bg-destructive/70" />
-              <span className="h-2.5 w-2.5 rounded-full bg-accent/70" />
-              <span className="h-2.5 w-2.5 rounded-full bg-primary/70" />
+          <div className="flex items-center gap-2 border-b border-border bg-muted/30 px-2 py-1.5 sm:gap-3 sm:px-3 sm:py-2">
+            <div className="flex gap-1 sm:gap-1.5">
+              <span className="h-2 w-2 rounded-full bg-destructive/70 sm:h-2.5 sm:w-2.5" />
+              <span className="h-2 w-2 rounded-full bg-accent/70 sm:h-2.5 sm:w-2.5" />
+              <span className="h-2 w-2 rounded-full bg-primary/70 sm:h-2.5 sm:w-2.5" />
             </div>
-            <div className="flex-1 truncate rounded bg-background/50 px-2 py-0.5 text-center text-[10px] text-muted-foreground sm:text-xs">
+            <div className="flex-1 truncate rounded bg-background/50 px-2 py-0.5 text-center text-[9px] text-muted-foreground sm:text-xs">
               {project.url}
             </div>
           </div>
@@ -154,9 +154,9 @@ const ProjectCard = ({ project }: { project: PortfolioProject }) => (
       </div>
 
       {/* Mobile mockup */}
-      <div className="justify-self-start md:justify-self-center">
-        <span className="mb-2 block text-xs uppercase tracking-wider text-muted-foreground">Mobile</span>
-        <div className="w-[140px] overflow-hidden rounded-2xl border-4 border-secondary bg-secondary shadow-[var(--shadow-card)] md:w-[160px]">
+      <div className="justify-self-center">
+        <span className="mb-2 block text-[10px] uppercase tracking-wider text-muted-foreground sm:text-xs">Mobile</span>
+        <div className="w-[90px] overflow-hidden rounded-2xl border-4 border-secondary bg-secondary shadow-[var(--shadow-card)] sm:w-[140px] md:w-[160px]">
           <div className="aspect-[9/19] bg-background">
             <img
               src={project.mobileImg}
