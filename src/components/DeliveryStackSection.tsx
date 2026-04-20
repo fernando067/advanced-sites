@@ -1,5 +1,6 @@
 import AnimatedSection from "./AnimatedSection";
 import ScrollStackCard from "./ScrollStackCard";
+import MobileCardCarousel from "./MobileCardCarousel";
 import { Palette, Zap, PenTool, BarChart3, Link, ShieldCheck } from "lucide-react";
 import { ReactNode } from "react";
 
