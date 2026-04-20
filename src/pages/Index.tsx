@@ -5,6 +5,7 @@ import PainSection from "@/components/PainSection";
 import BeliefBreakSection from "@/components/BeliefBreakSection";
 import SolutionSection from "@/components/SolutionSection";
 import DeliveryStackSection from "@/components/DeliveryStackSection";
+import PortfolioSection from "@/components/PortfolioSection";
 import DifferentialsSection from "@/components/DifferentialsSection";
 import SocialProofSection from "@/components/SocialProofSection";
 import BeforeAfterSection from "@/components/BeforeAfterSection";
@@ -49,6 +50,7 @@ const Index = () => (
     <BeliefBreakSection />
     <SolutionSection />
     <DeliveryStackSection />
+    <PortfolioSection />
     <DifferentialsSection />
     <SocialProofSection />
     <BeforeAfterSection />
