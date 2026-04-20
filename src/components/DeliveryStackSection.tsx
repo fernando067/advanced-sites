@@ -24,25 +24,37 @@ const DeliveryStackSection = () => (
         </h2>
       </AnimatedSection>
 
-      <div className="space-y-6">
+      {/* Desktop: scroll stack */}
+      <div className="hidden md:block space-y-6">
         {items.map((item, i) => (
           <ScrollStackCard key={i} index={i}>
-            <div className="rounded-2xl border border-border/60 bg-card/80 backdrop-blur-xl p-6 shadow-[var(--shadow-card)] transition-shadow hover:shadow-[var(--shadow-elevated)]">
-              <div className="flex items-start gap-5">
-                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-accent/10 text-accent">
-                  {item.icon}
-                </div>
-                <div>
-                  <h3 className="heading-md mb-1 text-foreground">{item.title}</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">{item.desc}</p>
-                </div>
-              </div>
-            </div>
+            <DeliveryCard item={item} />
           </ScrollStackCard>
         ))}
       </div>
+
+      {/* Mobile: carousel */}
+      <div className="md:hidden">
+        <MobileCardCarousel>
+          {items.map((item, i) => <DeliveryCard key={i} item={item} />)}
+        </MobileCardCarousel>
+      </div>
     </div>
   </section>
+);
+
+const DeliveryCard = ({ item }: { item: { icon: ReactNode; title: string; desc: string } }) => (
+  <div className="rounded-2xl border border-border/60 bg-card/80 backdrop-blur-xl p-5 sm:p-6 shadow-[var(--shadow-card)] h-full">
+    <div className="flex items-start gap-4 sm:gap-5">
+      <div className="flex h-11 w-11 sm:h-12 sm:w-12 shrink-0 items-center justify-center rounded-xl bg-accent/10 text-accent">
+        {item.icon}
+      </div>
+      <div>
+        <h3 className="heading-md mb-1 text-foreground">{item.title}</h3>
+        <p className="text-sm text-muted-foreground leading-relaxed">{item.desc}</p>
+      </div>
+    </div>
+  </div>
 );
 
 export default DeliveryStackSection;
