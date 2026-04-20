@@ -1,4 +1,3 @@
-import { lazy, Suspense } from "react";
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import PainSection from "@/components/PainSection";
@@ -13,36 +12,16 @@ import ProcessSection from "@/components/ProcessSection";
 import FaqSection from "@/components/FaqSection";
 import CtaFinalSection from "@/components/CtaFinalSection";
 import Footer from "@/components/Footer";
-
-const AnimatedGradient = lazy(() => import("@/components/ui/animated-gradient"));
+import bgGradient from "@/assets/bg-gradient.webp";
 
 const Index = () => (
   <div className="relative min-h-screen text-foreground">
-    {/* Full-page animated gradient background */}
-    <Suspense fallback={<div className="fixed inset-0 bg-background" />}>
-      <AnimatedGradient
-        config={{
-          preset: "custom",
-          color1: "#050510",
-          color2: "#1a3a6e",
-          color3: "#0a0a1a",
-          rotation: -50,
-          proportion: 10,
-          scale: 0.01,
-          speed: 15,
-          distortion: 0,
-          swirl: 40,
-          swirlIterations: 12,
-          softness: 60,
-          offset: -299,
-          shape: "Checks",
-          shapeSize: 45,
-        }}
-        noise={{ opacity: 0.03 }}
-        className="!fixed inset-0 -z-10"
-        style={{ width: "100vw", height: "100vh" }}
-      />
-    </Suspense>
+    {/* Static gradient background — performant, no animation */}
+    <div
+      className="fixed inset-0 -z-10 bg-background bg-cover bg-center"
+      style={{ backgroundImage: `url(${bgGradient})` }}
+      aria-hidden="true"
+    />
 
     <Navbar />
     <HeroSection />
