@@ -1,5 +1,6 @@
 import AnimatedSection from "./AnimatedSection";
 import ScrollStackCard from "./ScrollStackCard";
+import MobileCardCarousel from "./MobileCardCarousel";
 import { TrendingDown, Snail, Wrench, Smartphone, DollarSign, HeadphoneOff } from "lucide-react";
 import { ReactNode } from "react";
 
