@@ -1,3 +1,6 @@
+import { useCallback, useEffect, useState } from "react";
+import useEmblaCarousel from "embla-carousel-react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import AnimatedSection from "./AnimatedSection";
 
 const testimonials = [
@@ -18,37 +21,94 @@ const testimonials = [
   },
 ];
 
-const SocialProofSection = () => (
-  <section className="section-padding">
-    <div className="container-narrow">
-      <AnimatedSection className="text-center mb-16">
-        <span className="text-sm font-medium uppercase tracking-widest text-primary">Depoimentos</span>
-        <h2 className="heading-lg mt-3">
-          Quem já trabalhou conosco{" "}
-          <span className="gradient-text">recomenda.</span>
-        </h2>
-      </AnimatedSection>
-
-      <div className="grid gap-6 md:grid-cols-3">
-        {testimonials.map((t, i) => (
-          <AnimatedSection key={i} delay={i * 0.15}>
-            <div className="card-glass h-full flex flex-col">
-              <div className="mb-4 flex gap-1">
-                {Array.from({ length: 5 }).map((_, j) => (
-                  <span key={j} className="text-primary">★</span>
-                ))}
-              </div>
-              <p className="text-foreground leading-relaxed flex-1">"{t.text}"</p>
-              <div className="mt-6 pt-4 border-t border-border/50">
-                <p className="font-semibold text-foreground">{t.name}</p>
-                <p className="text-sm text-muted-foreground">{t.role}</p>
-              </div>
-            </div>
-          </AnimatedSection>
-        ))}
-      </div>
+const TestimonialCard = ({ t }: { t: typeof testimonials[number] }) => (
+  <div className="card-glass h-full flex flex-col">
+    <div className="mb-4 flex gap-1">
+      {Array.from({ length: 5 }).map((_, j) => (
+        <span key={j} className="text-primary">★</span>
+      ))}
     </div>
-  </section>
+    <p className="text-foreground leading-relaxed flex-1">"{t.text}"</p>
+    <div className="mt-6 pt-4 border-t border-border/50">
+      <p className="font-semibold text-foreground">{t.name}</p>
+      <p className="text-sm text-muted-foreground">{t.role}</p>
+    </div>
+  </div>
 );
+
+const SocialProofSection = () => {
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, align: "start" });
+  const [selected, setSelected] = useState(0);
+
+  const onSelect = useCallback(() => {
+    if (!emblaApi) return;
+    setSelected(emblaApi.selectedScrollSnap());
+  }, [emblaApi]);
+
+  useEffect(() => {
+    if (!emblaApi) return;
+    onSelect();
+    emblaApi.on("select", onSelect);
+    emblaApi.on("reInit", onSelect);
+  }, [emblaApi, onSelect]);
+
+  return (
+    <section className="section-padding">
+      <div className="container-narrow">
+        <AnimatedSection className="text-center mb-16">
+          <span className="text-sm font-medium uppercase tracking-widest text-primary">Depoimentos</span>
+          <h2 className="heading-lg mt-3">
+            Quem já trabalhou conosco{" "}
+            <span className="gradient-text">recomenda.</span>
+          </h2>
+        </AnimatedSection>
+
+        <div className="relative">
+          <div ref={emblaRef} className="overflow-hidden">
+            <div className="flex">
+              {testimonials.map((t, i) => (
+                <div
+                  key={i}
+                  className="min-w-0 shrink-0 grow-0 basis-[88%] pr-4 sm:basis-1/2 sm:pr-6 md:basis-1/3"
+                >
+                  <TestimonialCard t={t} />
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="mt-8 flex items-center justify-center gap-4">
+            <button
+              onClick={() => emblaApi?.scrollPrev()}
+              aria-label="Anterior"
+              className="flex h-10 w-10 items-center justify-center rounded-full border border-border bg-card/50 text-foreground transition hover:border-primary/50 hover:bg-primary/10"
+            >
+              <ChevronLeft className="h-5 w-5" />
+            </button>
+            <div className="flex gap-2">
+              {testimonials.map((_, i) => (
+                <button
+                  key={i}
+                  onClick={() => emblaApi?.scrollTo(i)}
+                  aria-label={`Ir para depoimento ${i + 1}`}
+                  className={`h-1.5 rounded-full transition-all ${
+                    i === selected ? "w-8 bg-primary" : "w-1.5 bg-border hover:bg-muted-foreground"
+                  }`}
+                />
+              ))}
+            </div>
+            <button
+              onClick={() => emblaApi?.scrollNext()}
+              aria-label="Próximo"
+              className="flex h-10 w-10 items-center justify-center rounded-full border border-border bg-card/50 text-foreground transition hover:border-primary/50 hover:bg-primary/10"
+            >
+              <ChevronRight className="h-5 w-5" />
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
 
 export default SocialProofSection;
