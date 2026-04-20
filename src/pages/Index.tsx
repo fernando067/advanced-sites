@@ -17,11 +17,13 @@ import bgGradient from "@/assets/bg-gradient.webp";
 const Index = () => (
   <div className="relative min-h-screen text-foreground">
     {/* Static gradient background — performant, no animation */}
-    <div
-      className="fixed inset-0 -z-10 bg-background bg-cover bg-center"
-      style={{ backgroundImage: `url(${bgGradient})` }}
-      aria-hidden="true"
-    />
+    <div className="fixed inset-0 -z-10 bg-background" aria-hidden="true">
+      <div
+        className="absolute inset-0 bg-cover bg-center opacity-50"
+        style={{ backgroundImage: `url(${bgGradient})` }}
+      />
+      <div className="absolute inset-0 bg-background/40" />
+    </div>
 
     <Navbar />
     <HeroSection />
