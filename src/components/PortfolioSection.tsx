@@ -132,8 +132,8 @@ const ProjectCard = ({ project }: { project: PortfolioProject }) => (
           <div className="flex items-center gap-3 border-b border-border bg-muted/30 px-3 py-2">
             <div className="flex gap-1.5">
               <span className="h-2.5 w-2.5 rounded-full bg-destructive/70" />
-              <span className="h-2.5 w-2.5 rounded-full bg-yellow-500/70" />
-              <span className="h-2.5 w-2.5 rounded-full bg-green-500/70" />
+              <span className="h-2.5 w-2.5 rounded-full bg-accent/70" />
+              <span className="h-2.5 w-2.5 rounded-full bg-primary/70" />
             </div>
             <div className="flex-1 truncate rounded bg-background/50 px-2 py-0.5 text-center text-[10px] text-muted-foreground sm:text-xs">
               {project.url}
