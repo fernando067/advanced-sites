@@ -175,21 +175,21 @@ const ProjectCard = ({ project }: { project: PortfolioProject }) => (
 );
 
 const landingPages: PortfolioProject[] = [
-  { title: "Ethos", tag: "Landing Page", url: "www.ethos.symgente.com.br", desktopImg: "/assets/ethos.png", mobileImg: "/assets/ethosmobile.png" },
-  { title: "Importadora Biglines", tag: "Landing Page", url: "www.lp.importadorabiglines.com.br", desktopImg: "/assets/importadorabiglines.png", mobileImg: "/assets/biglinesmobile.png" },
-  { title: "My Charm", tag: "Landing Page", url: "www.flaviamycharm.com.br", desktopImg: "/assets/mycharm.png", mobileImg: "/assets/mycharmmobile.png" },
-  { title: "Sym", tag: "Landing Page", url: "www.symgente.com.br", desktopImg: "/assets/sym.png", mobileImg: "/assets/symmobile.png" },
-  { title: "Madiolu", tag: "Landing Page", url: "www.grupovipmadiolu.com.br", desktopImg: "/assets/madiolu.png", mobileImg: "/assets/madiolumobile.png" },
+  { title: "Ethos", tag: "Landing Page", url: "www.ethos.symgente.com.br", desktopImg: "/assets/ethos.webp", mobileImg: "/assets/ethosmobile.webp" },
+  { title: "Importadora Biglines", tag: "Landing Page", url: "www.lp.importadorabiglines.com.br", desktopImg: "/assets/importadorabiglines.webp", mobileImg: "/assets/biglinesmobile.webp" },
+  { title: "My Charm", tag: "Landing Page", url: "www.flaviamycharm.com.br", desktopImg: "/assets/mycharm.webp", mobileImg: "/assets/mycharmmobile.webp" },
+  { title: "Sym", tag: "Landing Page", url: "www.symgente.com.br", desktopImg: "/assets/sym.webp", mobileImg: "/assets/symmobile.webp" },
+  { title: "Madiolu", tag: "Landing Page", url: "www.grupovipmadiolu.com.br", desktopImg: "/assets/madiolu.webp", mobileImg: "/assets/madiolumobile.webp" },
 ];
 
 const ecommerces: PortfolioProject[] = [
-  { title: "Madame San", tag: "E-commerce", url: "www.madamesan.com.br", desktopImg: "/assets/madamesan.png", mobileImg: "/assets/madamesanmobile.png" },
-  { title: "Empório Boho", tag: "E-commerce", url: "www.emporioboho.com.br", desktopImg: "/assets/emporioboho.png", mobileImg: "/assets/emporiobohomobile.png" },
-  { title: "Olive Gold Joias", tag: "E-commerce", url: "www.livegoldjoias.com.br", desktopImg: "/assets/olivegold.png", mobileImg: "/assets/oivegoldmobile.png" },
-  { title: "Evoque 18k", tag: "E-commerce", url: "www.evoque18k.com.br", desktopImg: "/assets/evoque18k.png", mobileImg: "/assets/evoque18lmobie.png" },
-  { title: "Labelle Semijoias", tag: "E-commerce", url: "www.labellesemijoias.com.br", desktopImg: "/assets/labelle.png", mobileImg: "/assets/labellemobile.png" },
-  { title: "Use Joias", tag: "E-commerce", url: "www.usejoias.com.br", desktopImg: "/assets/usejoias.png", mobileImg: "/assets/usejoiasmobile.png" },
-  { title: "Beautings", tag: "E-commerce", url: "www.beautings.com.br", desktopImg: "/assets/beautings.png", mobileImg: "/assets/beautingsmobile.png" },
+  { title: "Madame San", tag: "E-commerce", url: "www.madamesan.com.br", desktopImg: "/assets/madamesan.webp", mobileImg: "/assets/madamesanmobile.webp" },
+  { title: "Empório Boho", tag: "E-commerce", url: "www.emporioboho.com.br", desktopImg: "/assets/emporioboho.webp", mobileImg: "/assets/emporiobohomobile.webp" },
+  { title: "Olive Gold Joias", tag: "E-commerce", url: "www.livegoldjoias.com.br", desktopImg: "/assets/olivegold.webp", mobileImg: "/assets/oivegoldmobile.webp" },
+  { title: "Evoque 18k", tag: "E-commerce", url: "www.evoque18k.com.br", desktopImg: "/assets/evoque18k.webp", mobileImg: "/assets/evoque18lmobie.webp" },
+  { title: "Labelle Semijoias", tag: "E-commerce", url: "www.labellesemijoias.com.br", desktopImg: "/assets/labelle.webp", mobileImg: "/assets/labellemobile.webp" },
+  { title: "Use Joias", tag: "E-commerce", url: "www.usejoias.com.br", desktopImg: "/assets/usejoias.webp", mobileImg: "/assets/usejoiasmobile.webp" },
+  { title: "Beautings", tag: "E-commerce", url: "www.beautings.com.br", desktopImg: "/assets/beautings.webp", mobileImg: "/assets/beautingsmobile.webp" },
 ];
 
 const PortfolioSection = () => (
