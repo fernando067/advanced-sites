@@ -7,9 +7,9 @@ import {
 import AnimatedSection from "./AnimatedSection";
 
 const faqs = [
-  { q: "Quanto tempo leva para ficar pronto?", a: "Projetos de landing page levam de 7 a 14 dias. E-commerces completos de 21 a 45 dias, dependendo da complexidade." },
-  { q: "Vocês trabalham com qual plataforma?", a: "Utilizamos as melhores tecnologias do mercado: Shopify, WordPress/WooCommerce, e soluções custom com React para performance máxima." },
-  { q: "Posso acompanhar o desenvolvimento?", a: "Sim! Você recebe acesso a um painel de acompanhamento em tempo real e tem reuniões de check-in semanais." },
+  { q: "Quanto tempo leva para ficar pronto?", a: "Até 15 dias úteis." },
+  { q: "Vocês trabalham com qual plataforma?", a: "Utilizamos as melhores tecnologias do mercado: Shopify (somente essa)." },
+  { q: "Posso acompanhar o desenvolvimento?", a: "Sim! Por grupo de WhatsApp e reuniões de alinhamento ao longo do projeto." },
   { q: "E se eu não gostar do resultado?", a: "Trabalhamos com rodadas de revisão ilimitadas na fase de design. Nosso objetivo é que você fique 100% satisfeito." },
   { q: "Qual o investimento?", a: "Cada projeto é único. Agende uma reunião estratégica gratuita e receba uma proposta personalizada para o seu negócio." },
   { q: "Vocês oferecem suporte pós-lançamento?", a: "Sim, oferecemos planos de suporte contínuo com manutenção, otimização e atualizações mensais." },
@@ -31,10 +31,10 @@ const FaqSection = () => (
               value={`faq-${i}`}
               className="card-glass border-border/50 overflow-hidden"
             >
-              <AccordionTrigger className="px-4 py-3 text-left text-sm font-heading font-semibold text-foreground hover:no-underline hover:text-primary transition-colors sm:text-base">
+              <AccordionTrigger className="px-3 py-2.5 text-left text-xs font-heading font-semibold text-foreground hover:no-underline hover:text-primary transition-colors sm:text-sm">
                 {f.q}
               </AccordionTrigger>
-              <AccordionContent className="px-4 pb-3 text-sm text-muted-foreground leading-relaxed">
+              <AccordionContent className="px-3 pb-2.5 text-xs text-muted-foreground leading-relaxed sm:text-sm">
                 {f.a}
               </AccordionContent>
             </AccordionItem>
