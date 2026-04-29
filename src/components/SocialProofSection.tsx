@@ -25,24 +25,6 @@ const testimonials: Testimonial[] = [
     src: testimonialWhatsapp1,
     alt: "Depoimento de cliente via WhatsApp agradecendo pelo trabalho e elogiando o resultado do site",
   },
-  {
-    type: "text",
-    name: "Rafael Mendes",
-    role: "CEO — TechStore",
-    text: "Em 60 dias, nossas vendas online cresceram 280%. O investimento se pagou no primeiro mês.",
-  },
-  {
-    type: "text",
-    name: "Camila Santos",
-    role: "Fundadora — Bella Cosméticos",
-    text: "A landing page que criaram converteu 4x mais que nosso site anterior. Resultado impressionante.",
-  },
-  {
-    type: "text",
-    name: "Lucas Ferreira",
-    role: "Diretor — LF Consultoria",
-    text: "Profissionalismo de outro nível. Cada detalhe foi pensado para gerar resultado.",
-  },
 ];
 
 const TestimonialCard = ({ t }: { t: Testimonial }) => {
