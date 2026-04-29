@@ -89,48 +89,8 @@ const SocialProofSection = () => {
           </h2>
         </AnimatedSection>
 
-        <div className="relative">
-          <div ref={emblaRef} className="overflow-hidden">
-            <div className="flex">
-              {testimonials.map((t, i) => (
-                <div
-                  key={i}
-                  className="min-w-0 shrink-0 grow-0 basis-[88%] pr-4 sm:basis-1/2 sm:pr-6 md:basis-1/3"
-                >
-                  <TestimonialCard t={t} />
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <div className="mt-8 flex items-center justify-center gap-4">
-            <button
-              onClick={() => emblaApi?.scrollPrev()}
-              aria-label="Anterior"
-              className="flex h-10 w-10 items-center justify-center rounded-full border border-border bg-card/50 text-foreground transition hover:border-primary/50 hover:bg-primary/10"
-            >
-              <ChevronLeft className="h-5 w-5" />
-            </button>
-            <div className="flex gap-2">
-              {testimonials.map((_, i) => (
-                <button
-                  key={i}
-                  onClick={() => emblaApi?.scrollTo(i)}
-                  aria-label={`Ir para depoimento ${i + 1}`}
-                  className={`h-1.5 rounded-full transition-all ${
-                    i === selected ? "w-8 bg-primary" : "w-1.5 bg-border hover:bg-muted-foreground"
-                  }`}
-                />
-              ))}
-            </div>
-            <button
-              onClick={() => emblaApi?.scrollNext()}
-              aria-label="Próximo"
-              className="flex h-10 w-10 items-center justify-center rounded-full border border-border bg-card/50 text-foreground transition hover:border-primary/50 hover:bg-primary/10"
-            >
-              <ChevronRight className="h-5 w-5" />
-            </button>
-          </div>
+        <div className="mx-auto max-w-md">
+          <TestimonialCard t={testimonials[0]} />
         </div>
       </div>
     </section>
