@@ -1,6 +1,3 @@
-import { useCallback, useEffect, useState } from "react";
-import useEmblaCarousel from "embla-carousel-react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
 import AnimatedSection from "./AnimatedSection";
 import testimonialWhatsapp1 from "@/assets/testimonial-whatsapp-1.png";
 
