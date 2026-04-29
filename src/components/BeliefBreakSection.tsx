@@ -12,17 +12,10 @@ const BeliefBreakSection = () => (
           O problema <span className="gradient-text">não é o seu produto.</span>{" "}
           É como ele está sendo apresentado.
         </h2>
-        <p className="body-lg mb-8">
+        <p className="body-lg">
           Empresários com ótimos produtos perdem vendas todos os dias porque seus sites não foram 
           construídos para converter. Um design bonito sem estratégia é apenas uma vitrine vazia.
         </p>
-        <div className="glass rounded-2xl p-8 text-left">
-          <p className="text-lg font-medium text-foreground mb-2">
-            "Trocamos nosso site genérico por uma landing page estratégica e em 30 dias 
-            triplicamos o faturamento online."
-          </p>
-          <p className="text-sm text-muted-foreground">— CEO de e-commerce de moda</p>
-        </div>
       </AnimatedSection>
     </div>
   </section>
