@@ -60,21 +60,6 @@ const TestimonialCard = ({ t }: { t: Testimonial }) => {
 };
 
 const SocialProofSection = () => {
-  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, align: "start" });
-  const [selected, setSelected] = useState(0);
-
-  const onSelect = useCallback(() => {
-    if (!emblaApi) return;
-    setSelected(emblaApi.selectedScrollSnap());
-  }, [emblaApi]);
-
-  useEffect(() => {
-    if (!emblaApi) return;
-    onSelect();
-    emblaApi.on("select", onSelect);
-    emblaApi.on("reInit", onSelect);
-  }, [emblaApi, onSelect]);
-
   return (
     <section className="section-padding">
       <div className="container-narrow">
