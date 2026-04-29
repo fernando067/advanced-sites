@@ -2,39 +2,83 @@ import { useCallback, useEffect, useState } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import AnimatedSection from "./AnimatedSection";
+import testimonialWhatsapp1 from "@/assets/testimonial-whatsapp-1.png";
 
-const testimonials = [
+type TextTestimonial = {
+  type: "text";
+  name: string;
+  role: string;
+  text: string;
+};
+
+type ImageTestimonial = {
+  type: "image";
+  src: string;
+  alt: string;
+};
+
+type Testimonial = TextTestimonial | ImageTestimonial;
+
+const testimonials: Testimonial[] = [
   {
+    type: "image",
+    src: testimonialWhatsapp1,
+    alt: "Depoimento de cliente via WhatsApp agradecendo pelo trabalho e elogiando o resultado do site",
+  },
+  {
+    type: "text",
     name: "Rafael Mendes",
     role: "CEO — TechStore",
     text: "Em 60 dias, nossas vendas online cresceram 280%. O investimento se pagou no primeiro mês.",
   },
   {
+    type: "text",
     name: "Camila Santos",
     role: "Fundadora — Bella Cosméticos",
     text: "A landing page que criaram converteu 4x mais que nosso site anterior. Resultado impressionante.",
   },
   {
+    type: "text",
     name: "Lucas Ferreira",
     role: "Diretor — LF Consultoria",
     text: "Profissionalismo de outro nível. Cada detalhe foi pensado para gerar resultado.",
   },
 ];
 
-const TestimonialCard = ({ t }: { t: typeof testimonials[number] }) => (
-  <div className="card-glass h-full flex flex-col">
-    <div className="mb-4 flex gap-1">
-      {Array.from({ length: 5 }).map((_, j) => (
-        <span key={j} className="text-primary">★</span>
-      ))}
+const TestimonialCard = ({ t }: { t: Testimonial }) => {
+  if (t.type === "image") {
+    return (
+      <div className="card-glass h-full flex flex-col overflow-hidden">
+        <div className="rounded-lg overflow-hidden bg-background/40 border border-border/50">
+          <img
+            src={t.src}
+            alt={t.alt}
+            loading="lazy"
+            className="w-full h-auto object-contain"
+          />
+        </div>
+        <div className="mt-4 pt-4 border-t border-border/50">
+          <p className="text-sm text-muted-foreground">Depoimento real via WhatsApp</p>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="card-glass h-full flex flex-col">
+      <div className="mb-4 flex gap-1">
+        {Array.from({ length: 5 }).map((_, j) => (
+          <span key={j} className="text-primary">★</span>
+        ))}
+      </div>
+      <p className="text-foreground leading-relaxed flex-1">"{t.text}"</p>
+      <div className="mt-6 pt-4 border-t border-border/50">
+        <p className="font-semibold text-foreground">{t.name}</p>
+        <p className="text-sm text-muted-foreground">{t.role}</p>
+      </div>
     </div>
-    <p className="text-foreground leading-relaxed flex-1">"{t.text}"</p>
-    <div className="mt-6 pt-4 border-t border-border/50">
-      <p className="font-semibold text-foreground">{t.name}</p>
-      <p className="text-sm text-muted-foreground">{t.role}</p>
-    </div>
-  </div>
-);
+  );
+};
 
 const SocialProofSection = () => {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, align: "start" });
